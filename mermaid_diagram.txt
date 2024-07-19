@@ -1,0 +1,14 @@
+graph TD
+    A[Start Conversation] -->|initialize_conversation| B[Conversation Initialization]
+    B --> C{User Input}
+    C -->|Moderation Check| D[Moderation Check]
+    D -->|Pass| E[Get Chat Completions]
+    C -->|exit| F[End Conversation]
+    E --> G{Function Call Needed?}
+    G -->|Yes| H[Get Chat Completions with Function Calling]
+    G -->|No| I[Continue Conversation]
+    H --> J[Compare Laptops with User]
+    J --> K[Return Recommendations]
+    K --> C
+    I --> M[Return Response]
+    M --> C
